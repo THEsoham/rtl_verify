@@ -1,0 +1,15 @@
+# LLM-Driven RTL Design and Verification Framework
+workdir/
+__pycache__/
+*.pyc
+.env
+*.db
+*.vvp
+*.vcd
+*.fst
+.ruff_cache/
+dist/
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/

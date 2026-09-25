@@ -1,0 +1,62 @@
+name: "counter"
+category: "sequential"
+difficulty: "easy"
+description: |
+  8-bit synchronous up/down counter with active-low reset, enable control, synchronous parallel load,
+  and wrap-around overflow / underflow indicators.
+  On each rising clock edge:
+  - If reset (`rst_n`) is active (low), the counter resets to 8'h00.
+  - If `load` is high, the counter synchronously loads `load_value`.
+  - If `enable` is high (and `load` is low), the counter increments if `direction` is 1, or decrements if `direction` is 0.
+  - If `enable` is low (and `load` is low), the counter retains its current value.
+  - When counting up and wrapping from 8'hFF to 8'h00, `overflow` is asserted for that cycle.
+  - When counting down and wrapping from 8'h00 to 8'hFF, `underflow` is asserted for that cycle.
+ports:
+  inputs:
+    - name: "clk"
+      width: 1
+      description: "Primary system clock (rising-edge triggered)"
+    - name: "rst_n"
+      width: 1
+      description: "Active-low reset signal (clears counter to 0x00)"
+    - name: "enable"
+      width: 1
+      description: "Count enable signal; counter holds value when 0"
+    - name: "direction"
+      width: 1
+      description: "Counting direction selector: 1'b1 = count up (increment), 1'b0 = count down (decrement)"
+    - name: "load"
+      width: 1
+      description: "Synchronous parallel load enable; overrides normal counting"
+    - name: "load_value"
+      width: 8
+      description: "8-bit value to load into the counter when load is asserted"
+  outputs:
+    - name: "count"
+      width: 8
+      description: "Current 8-bit counter value"
+    - name: "overflow"
+      width: 1
+      description: "Asserted (1'b1) when counting up wraps from 8'hFF to 8'h00; 0 otherwise"
+    - name: "underflow"
+      width: 1
+      description: "Asserted (1'b1) when counting down wraps from 8'h00 to 8'hFF; 0 otherwise"
+requirements:
+  - "Module name must be `counter`."
+  - "Sequential logic driven by the rising edge of `clk`."
+  - "Active-low reset `rst_n` sets `count` to 8'h00, `overflow` to 1'b0, and `underflow` to 1'b0."
+  - "Synchronous `load` takes precedence over regular counting: when `load` == 1, `count` takes `load_value` on next clock edge."
+  - "When `enable` == 1 and `load` == 0: increment `count` by 1 if `direction` == 1, or decrement `count` by 1 if `direction` == 0."
+  - "When `enable` == 0 and `load` == 0: hold `count` unchanged."
+  - "When `direction` == 1 and `count` wraps from 8'hFF to 8'h00 during counting, `overflow` must be asserted (1'b1) for that clock cycle."
+  - "When `direction` == 0 and `count` wraps from 8'h00 to 8'hFF during counting, `underflow` must be asserted (1'b1) for that clock cycle."
+  - "`overflow` and `underflow` must remain 1'b0 during non-wrapping cycles, during hold (enable=0), and after reset."
+verification_hints:
+  - "Verify active-low reset initializes `count` to 8'h00 and flags to 0."
+  - "Count upwards across multiple clock cycles from 0x00 to 0x10 and verify sequential increment."
+  - "Verify enable=0 freezes counter state and flags across multiple clock cycles."
+  - "Load 0xFE, enable count up, verify transition to 0xFF (overflow=0) and next transition to 0x00 (overflow=1)."
+  - "Load 0x01, enable count down, verify transition to 0x00 (underflow=0) and next transition to 0xFF (underflow=1)."
+  - "Verify synchronous load overrides enable=0 and enable=1 counting."
+  - "Verify dynamic direction switching: count up to 0x05, switch direction to 0, verify decrement to 0x04."
+  - "Test load value 0xFF and count down, load value 0x00 and count up."

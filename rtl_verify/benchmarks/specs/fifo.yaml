@@ -1,0 +1,62 @@
+name: "fifo"
+category: "sequential"
+difficulty: "medium"
+description: |
+  Synchronous First-In-First-Out (FIFO) queue buffer with a storage capacity of 8 entries and 8-bit data width.
+  Provides status flags `full` and `empty`, as well as a 4-bit occupancy indicator `count` (range 0 to 8).
+  Supports synchronous push (write) and pop (read) operations, as well as simultaneous read and write
+  in the same clock cycle.
+ports:
+  inputs:
+    - name: "clk"
+      width: 1
+      description: "System clock (rising-edge triggered)"
+    - name: "rst_n"
+      width: 1
+      description: "Active-low synchronous or asynchronous reset (clears FIFO contents, pointers, and count)"
+    - name: "write_en"
+      width: 1
+      description: "Write enable signal; writes data_in into the buffer when not full"
+    - name: "read_en"
+      width: 1
+      description: "Read enable signal; advances read pointer and outputs next data when not empty"
+    - name: "data_in"
+      width: 8
+      description: "8-bit input data to write into the FIFO"
+  outputs:
+    - name: "data_out"
+      width: 8
+      description: "8-bit output data read from the front of the FIFO"
+    - name: "full"
+      width: 1
+      description: "Active-high flag indicating FIFO has reached maximum capacity (8 entries)"
+    - name: "empty"
+      width: 1
+      description: "Active-high flag indicating FIFO is completely empty (0 entries)"
+    - name: "count"
+      width: 4
+      description: "4-bit count indicating current number of entries stored in FIFO (range 0 to 8)"
+requirements:
+  - "Module name must be `fifo`."
+  - "FIFO buffer depth is 8 words of 8 bits each."
+  - "Active-low reset `rst_n` sets `empty` to 1'b1, `full` to 1'b0, `count` to 4'd0, and resets internal pointers."
+  - "When `write_en` is high and `full` is low, `data_in` is written into the FIFO buffer at the write pointer and write pointer increments on clock edge."
+  - "When `full` is high and `read_en` is low, writes must be blocked and ignored without modifying buffer contents or count."
+  - "When `read_en` is high and `empty` is low, the data at the current read pointer is output on `data_out` and read pointer increments on clock edge."
+  - "When `empty` is high and `write_en` is low, reads must be ignored without modifying internal pointers or count."
+  - "Strict FIFO ordering must be preserved: data is read out in the exact sequence it was written."
+  - "Simultaneous read and write (`write_en` == 1 and `read_en` == 1) when neither empty nor full must execute both operations in the same cycle; `count` remains unchanged."
+  - "When `empty` is 1 and simultaneous read and write occurs: the write must succeed, increasing count to 1, while read does not return invalid data / underflow."
+  - "When `full` is 1 and simultaneous read and write occurs: the read must succeed (popping oldest element) and write must succeed (pushing new element), leaving count at 8."
+  - "The `count` output (4-bit, [3:0]) must always equal the exact number of valid entries currently stored (0 to 8)."
+  - "`full` must be 1'b1 if and only if `count` == 8."
+  - "`empty` must be 1'b1 if and only if `count` == 0."
+verification_hints:
+  - "Fill the FIFO by writing 8 consecutive distinct values; verify count increments from 0 to 8, empty goes low, full goes high."
+  - "Attempt writing a 9th element when full=1; verify full stays 1, count stays 8, and no data is corrupted."
+  - "Drain the FIFO by reading 8 times; verify data matches written sequence (FIFO property) and count decrements to 0, empty asserts."
+  - "Attempt reading from an empty FIFO; verify count remains 0 and empty remains 1."
+  - "Test alternating single write and single read operations; verify continuous data flow without overflow/underflow."
+  - "Test simultaneous read and write operations at intermediate fill levels (e.g. count=4); verify count stays 4 and correct data is read."
+  - "Test simultaneous read and write when full (count=8); verify count stays 8 and oldest item is read while new item is stored."
+  - "Verify active-low reset at arbitrary fill levels immediately restores empty=1, full=0, count=0."

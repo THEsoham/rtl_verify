@@ -1,0 +1,66 @@
+name: "uart_tx"
+category: "sequential"
+difficulty: "hard"
+description: |
+  Universal Asynchronous Receiver/Transmitter (UART) Transmitter module.
+  Transmits an 8-bit parallel data byte `data_in` serially over the `tx` line using standard
+  8-N-1 asynchronous framing (1 start bit, 8 data bits LSB-first, no parity, 1 stop bit).
+
+  Baud Timing:
+  - Each bit duration (start bit, 8 data bits, stop bit) is governed by the 16-bit input `baud_div`.
+  - A baud tick occurs every `baud_div` clock cycles. Each serial bit is held stable on `tx` for exactly `baud_div` clock cycles.
+
+  Protocol & State Sequence:
+  1. IDLE: `tx` line remains HIGH (1'b1), `tx_busy` = 0, `tx_done` = 0.
+  2. START BIT: Upon receiving `tx_start` while idle, `tx` drives LOW (1'b0) for `baud_div` cycles, `tx_busy` asserts (1'b1).
+  3. DATA BITS: 8 data bits are transmitted sequentially from LSB (`data_in[0]`) to MSB (`data_in[7]`), each held for `baud_div` cycles.
+  4. STOP BIT: `tx` drives HIGH (1'b1) for `baud_div` cycles.
+  5. DONE: Upon completing the stop bit, `tx_done` pulses HIGH for exactly 1 clock cycle, `tx_busy` deasserts (1'b0), and the module returns to IDLE.
+ports:
+  inputs:
+    - name: "clk"
+      width: 1
+      description: "Primary system clock (rising-edge triggered)"
+    - name: "rst_n"
+      width: 1
+      description: "Active-low asynchronous/synchronous reset (resets transmitter to IDLE state, tx=1)"
+    - name: "tx_start"
+      width: 1
+      description: "Start transmission trigger; initiates sending data_in when transmitter is idle"
+    - name: "data_in"
+      width: 8
+      description: "8-bit parallel byte to transmit serially"
+    - name: "baud_div"
+      width: 16
+      description: "Baud rate divider specifying clock cycles per bit period (e.g. 16'd434 for 50MHz clk at 115200 baud)"
+  outputs:
+    - name: "tx"
+      width: 1
+      description: "Serial output transmission line (idle HIGH)"
+    - name: "tx_busy"
+      width: 1
+      description: "Active-high status indicator asserted throughout active transmission (start bit through stop bit)"
+    - name: "tx_done"
+      width: 1
+      description: "Active-high single-cycle pulse asserted when transmission of the stop bit completes"
+requirements:
+  - "Module name must be `uart_tx`."
+  - "Active-low reset `rst_n` sets `tx` to 1'b1 (idle high), `tx_busy` to 1'b0, `tx_done` to 1'b0, and clears internal counters/state."
+  - "When idle and `tx_start` is low, the `tx` line must remain constant 1'b1."
+  - "When `tx_start` is asserted (1'b1) and transmitter is idle (`tx_busy` == 0), the module latches `data_in` and initiates transmission."
+  - "If `tx_start` is asserted while `tx_busy` is high, it must be ignored without interrupting or corrupting the current transmission."
+  - "Each of the 10 transmitted bits (1 start bit + 8 data bits + 1 stop bit) must be held on `tx` for exactly `baud_div` clock cycles."
+  - "Transmission format order: 1 start bit (1'b0), followed by 8 data bits transmitted LSB-first (`data_in[0]` through `data_in[7]`), followed by 1 stop bit (1'b1)."
+  - "`tx_busy` must remain 1'b1 continuously from the first clock cycle of the start bit until the final cycle of the stop bit."
+  - "`tx_done` must assert (1'b1) for exactly 1 clock cycle immediately upon completion of the stop bit transmission, coincident with or followed by `tx_busy` returning to 0."
+  - "Total transmission duration for one frame must equal 10 * `baud_div` clock cycles."
+verification_hints:
+  - "Verify idle line state is high (tx=1) upon reset."
+  - "Transmit known data patterns: 0x00 (all zeros), 0xFF (all ones), 0xAA (0b10101010), 0x55 (0b01010101), 0xA5 (0b10100101)."
+  - "Sample serial output at baud-rate intervals (middle or end of baud_div window) to reconstruct byte and verify start=0, LSB..MSB, stop=1."
+  - "Measure cycle counts between start bit assertion and tx_done pulse; verify total cycles == 10 * baud_div."
+  - "Verify tx_busy asserts simultaneously with start bit and deasserts after stop bit."
+  - "Verify tx_done asserts as a 1-clock-cycle pulse."
+  - "Assert tx_start mid-transmission while tx_busy=1; verify the ongoing transmission completes uncorrupted and the second start is discarded."
+  - "Verify immediate back-to-back transmission: assert tx_start on or immediately following tx_done."
+  - "Test with various baud_div divider values (e.g. baud_div = 4, 8, 16, 100)."

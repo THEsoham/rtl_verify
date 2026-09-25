@@ -1,0 +1,56 @@
+name: "fsm"
+category: "sequential"
+difficulty: "medium"
+description: |
+  Traffic Light Controller Finite State Machine (FSM) managing an intersection between a Main Road
+  and a Side Road. The controller monitors a vehicle detection `sensor` on the side road and sequences
+  traffic lights through four states with specific timing intervals:
+  
+  1. MAIN_GREEN: Main road has GREEN light (2'b10), Side road has RED light (2'b00).
+     Lasts for 10 clock cycles under normal traffic, or transitions early to MAIN_YELLOW if `sensor` is high.
+  2. MAIN_YELLOW: Main road has YELLOW light (2'b01), Side road has RED light (2'b00).
+     Lasts for exactly 3 clock cycles, then transitions unconditionally to SIDE_GREEN.
+  3. SIDE_GREEN: Main road has RED light (2'b00), Side road has GREEN light (2'b10).
+     Lasts for exactly 7 clock cycles, then transitions unconditionally to SIDE_YELLOW.
+  4. SIDE_YELLOW: Main road has RED light (2'b00), Side road has YELLOW light (2'b01).
+     Lasts for exactly 3 clock cycles, then transitions unconditionally back to MAIN_GREEN.
+
+  Light Color Encoding (2-bit):
+  - 2'b00 : RED
+  - 2'b01 : YELLOW
+  - 2'b10 : GREEN
+ports:
+  inputs:
+    - name: "clk"
+      width: 1
+      description: "Primary system clock (rising-edge triggered)"
+    - name: "rst_n"
+      width: 1
+      description: "Active-low reset signal (initializes FSM to MAIN_GREEN state and resets cycle timer)"
+    - name: "sensor"
+      width: 1
+      description: "Vehicle presence sensor on side road (1 = vehicle waiting, 0 = no vehicle)"
+  outputs:
+    - name: "main_light"
+      width: 2
+      description: "2-bit traffic light output for main road: 2'b00=RED, 2'b01=YELLOW, 2'b10=GREEN"
+    - name: "side_light"
+      width: 2
+      description: "2-bit traffic light output for side road: 2'b00=RED, 2'b01=YELLOW, 2'b10=GREEN"
+requirements:
+  - "Module name must be `fsm`."
+  - "Active-low reset `rst_n` sets state to MAIN_GREEN with main_light=2'b10 (GREEN), side_light=2'b00 (RED), and resets internal timer to 0."
+  - "Light output encoding must strictly adhere to: 2'b00 = RED, 2'b01 = YELLOW, 2'b10 = GREEN."
+  - "SAFETY REQUIREMENT: `main_light` and `side_light` must NEVER be simultaneously GREEN (2'b10) under any circumstance."
+  - "In MAIN_GREEN (main_light=2'b10, side_light=2'b00): state remains for 10 clock cycles if sensor=0. If sensor=1 (or if 10 cycles expire), the FSM transitions to MAIN_YELLOW on the next clock cycle."
+  - "In MAIN_YELLOW (main_light=2'b01, side_light=2'b00): state persists for exactly 3 clock cycles, then transitions to SIDE_GREEN."
+  - "In SIDE_GREEN (main_light=2'b00, side_light=2'b10): state persists for exactly 7 clock cycles, then transitions to SIDE_YELLOW."
+  - "In SIDE_YELLOW (main_light=2'b00, side_light=2'b01): state persists for exactly 3 clock cycles, then transitions to MAIN_GREEN."
+  - "The `sensor` input must ONLY affect the MAIN_GREEN state; sensor activity during MAIN_YELLOW, SIDE_GREEN, and SIDE_YELLOW must be completely ignored and must not alter state timing."
+verification_hints:
+  - "Verify initial state after reset: main_light=GREEN (2'b10), side_light=RED (2'b00)."
+  - "Verify standard cycle without sensor activity (sensor=0 throughout): 10 cycles MAIN_GREEN -> 3 cycles MAIN_YELLOW -> 7 cycles SIDE_GREEN -> 3 cycles SIDE_YELLOW -> MAIN_GREEN."
+  - "Verify sensor triggering during MAIN_GREEN: assert sensor at cycle 3, verify early transition to MAIN_YELLOW on next cycle."
+  - "Verify sensor pulse ignored during MAIN_YELLOW, SIDE_GREEN, and SIDE_YELLOW: verify timing remains 3, 7, and 3 cycles respectively."
+  - "Verify mutual exclusion safety property: main_light == 2'b10 && side_light == 2'b10 is an invariant failure."
+  - "Assert active-low reset at arbitrary states (e.g. while in SIDE_GREEN) and verify immediate return to MAIN_GREEN."

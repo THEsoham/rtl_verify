@@ -1,0 +1,60 @@
+name: "register_bank"
+category: "sequential"
+difficulty: "medium"
+description: |
+  Dual-read single-write 8x8 Register Bank (Register File) comprising 8 general-purpose registers (R0 to R7)
+  of 8 bits each.
+  
+  Key Features:
+  - 1 Synchronous Write Port: `write_data` is written to register `write_addr` on the rising edge of `clk` when `write_en` is high.
+  - 2 Independent Asynchronous (Combinational) Read Ports: `read_data1` and `read_data2` continuously output the contents of registers at `read_addr1` and `read_addr2` without clock delay.
+  - Hardwired Zero Register (R0): Register address 3'b000 (R0) is hardwired to 8'h00. Reads from address 3'b000 ALWAYS return 8'h00, and writes to address 3'b000 are ignored (have no effect).
+ports:
+  inputs:
+    - name: "clk"
+      width: 1
+      description: "Primary system clock (rising-edge triggered)"
+    - name: "rst_n"
+      width: 1
+      description: "Active-low reset signal (clears registers R1 through R7 to 8'h00)"
+    - name: "write_en"
+      width: 1
+      description: "Synchronous write enable; enables writing write_data into write_addr"
+    - name: "write_addr"
+      width: 3
+      description: "3-bit destination register address (0 to 7)"
+    - name: "write_data"
+      width: 8
+      description: "8-bit data word to write into the destination register"
+    - name: "read_addr1"
+      width: 3
+      description: "3-bit register address for read port 1"
+    - name: "read_addr2"
+      width: 3
+      description: "3-bit register address for read port 2"
+  outputs:
+    - name: "read_data1"
+      width: 8
+      description: "8-bit asynchronous data output from read port 1"
+    - name: "read_data2"
+      width: 8
+      description: "8-bit asynchronous data output from read port 2"
+requirements:
+  - "Module name must be `register_bank`."
+  - "Architecture contains 8 registers of 8 bits each, indexed from 3'b000 (R0) to 3'b111 (R7)."
+  - "Active-low reset `rst_n` asynchronously or synchronously clears all registers R1 through R7 to 8'h00."
+  - "Register R0 (address 3'b000) is hardwired to zero: reading from address 3'b000 must ALWAYS return 8'h00, and writes targeting address 3'b000 must be ignored."
+  - "Synchronous write: when `write_en` is 1'b1 on the rising edge of `clk` and `write_addr` != 3'b000, `write_data` is written to register `write_addr`."
+  - "When `write_en` is 1'b0 on clock edge, no register contents may be modified."
+  - "Asynchronous read: `read_data1` immediately reflects the contents of register `read_addr1`, and `read_data2` immediately reflects register `read_addr2` combinatorially without clock dependency."
+  - "Both read ports operate independently and concurrently; reading the same register from both ports simultaneously is fully supported."
+  - "When writing to a register while simultaneously reading from it (same address in the same cycle), the asynchronous read reflects the register's pre-write value until the clock edge updates the register."
+verification_hints:
+  - "Verify active-low reset initializes registers R1 through R7 to 8'h00."
+  - "Verify hardwired zero property: attempt writing 0xFF to address 3'b000 with write_en=1; verify R0 remains 8'h00 on both read ports."
+  - "Write distinct values (e.g. 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77) to registers R1 through R7, then read all registers back on both read ports."
+  - "Verify simultaneous reads on both ports targeting the same register address (read_addr1 == read_addr2)."
+  - "Verify simultaneous reads targeting two distinct registers."
+  - "Verify write_en=0 holds stored data unmodified across clock cycles."
+  - "Verify combinational read latency (changing read address immediately changes read_data without waiting for clk edge)."
+  - "Test read-after-write timing behavior within the same cycle."
