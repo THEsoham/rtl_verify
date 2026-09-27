@@ -1,0 +1,35 @@
+{
+  "name": "alu_8bit",
+  "title": "8-Bit Registered Arithmetic Logic Unit",
+  "category": "Datapath / Computational Unit",
+  "description": "An 8-bit registered arithmetic and logic unit with 8 operations, input registers, an output pipeline register, carry-out, overflow, zero, and parity flag generation.",
+  "parameters": [
+    {"name": "WIDTH", "default": 8, "description": "Operand and result data width"}
+  ],
+  "ports": [
+    {"name": "clk", "dir": "input", "width": 1, "description": "System clock"},
+    {"name": "rst_n", "dir": "input", "width": 1, "description": "Active-low synchronous reset"},
+    {"name": "valid_in", "dir": "input", "width": 1, "description": "Input valid strobe"},
+    {"name": "opcode", "dir": "input", "width": 3, "description": "Operation code (0:ADD, 1:SUB, 2:AND, 3:OR, 4:XOR, 5:SHL, 6:SHR, 7:PASS_A)"},
+    {"name": "operand_a", "dir": "input", "width": 8, "description": "First 8-bit operand"},
+    {"name": "operand_b", "dir": "input", "width": 8, "description": "Second 8-bit operand"},
+    {"name": "result", "dir": "output", "width": 8, "description": "Registered 8-bit computation result"},
+    {"name": "zero", "dir": "output", "width": 1, "description": "Flag: asserted when result == 8'b0"},
+    {"name": "carry_out", "dir": "output", "width": 1, "description": "Carry out of bit 7 for ADD/SUB operations"},
+    {"name": "overflow", "dir": "output", "width": 1, "description": "Two's complement signed overflow indicator"},
+    {"name": "valid_out", "dir": "output", "width": 1, "description": "One-cycle delayed valid flag matching pipeline latency"}
+  ],
+  "requirements": [
+    "Registered latency: exactly 1 clock cycle latency from valid_in to valid_out and result.",
+    "Operations:",
+    "  000: result = operand_a + operand_b (unsigned carry_out captured)",
+    "  001: result = operand_a - operand_b (borrow/carry_out and signed overflow captured)",
+    "  010: result = operand_a & operand_b",
+    "  011: result = operand_a | operand_b",
+    "  100: result = operand_a ^ operand_b",
+    "  101: result = operand_a << (operand_b[2:0])",
+    "  110: result = operand_a >> (operand_b[2:0])",
+    "  111: result = operand_a",
+    "Flags: zero must be 1 iff result == 0; signed overflow must correctly check sign change on add/sub."
+  ]
+}

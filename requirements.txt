@@ -1,0 +1,16 @@
+# Core Agentic & AI Dependencies
+google-genai>=0.1.0
+openai>=1.12.0
+langchain>=0.2.0
+langgraph>=0.0.30
+python-dotenv>=1.0.0
+
+# Scientific & Evaluation Packages
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# Jupyter Execution
+nbformat>=5.9.0
+nbclient>=0.10.0
+ipykernel>=6.29.0

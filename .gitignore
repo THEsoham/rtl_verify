@@ -1,15 +1,36 @@
-# LLM-Driven RTL Design and Verification Framework
-workdir/
-__pycache__/
-*.pyc
+# Secrets & Environment variables
 .env
-*.db
-*.vvp
-*.vcd
-*.fst
-.ruff_cache/
-dist/
-*.egg-info/
+.env.*
+*.env
+
+# Python virtual environment & caches
 .venv/
 venv/
-.pytest_cache/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Parser artifacts
+parsetab.py
+parser.out
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build / Distribution
+build/
+dist/
+*.egg-info/
+
+# Temporary / Scratch scripts
+scratch/test_*.py
+scratch/check_*.py

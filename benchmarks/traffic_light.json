@@ -1,0 +1,29 @@
+{
+  "name": "traffic_light_controller",
+  "title": "Intersection Traffic Light Controller FSM",
+  "category": "Finite State Machine / Control Logic",
+  "description": "An intersection traffic light controller supporting Main Street (North-South) and Side Street (East-West), featuring pedestrian crossing walk requests, an emergency vehicle preemption override, and programmable yellow/green transition timing counters.",
+  "parameters": [
+    {"name": "MAIN_GREEN_CYCLES", "default": 10, "description": "Clock cycles Main Street stays green"},
+    {"name": "SIDE_GREEN_CYCLES", "default": 6, "description": "Clock cycles Side Street stays green"},
+    {"name": "YELLOW_CYCLES", "default": 3, "description": "Clock cycles yellow light is illuminated"},
+    {"name": "ALL_RED_CYCLES", "default": 2, "description": "All-red clearance safety interval"}
+  ],
+  "ports": [
+    {"name": "clk", "dir": "input", "width": 1, "description": "Clock signal"},
+    {"name": "rst_n", "dir": "input", "width": 1, "description": "Active-low reset"},
+    {"name": "car_present_side", "dir": "input", "width": 1, "description": "Sensor detecting vehicle waiting on side street"},
+    {"name": "pedestrian_req", "dir": "input", "width": 1, "description": "Pushbutton request for pedestrian walk phase"},
+    {"name": "emergency_override", "dir": "input", "width": 1, "description": "High-priority emergency vehicle clearance override"},
+    {"name": "main_light", "dir": "output", "width": 3, "description": "3-bit encoded Main light [Red, Yellow, Green]"},
+    {"name": "side_light", "dir": "output", "width": 3, "description": "3-bit encoded Side light [Red, Yellow, Green]"},
+    {"name": "ped_walk", "dir": "output", "width": 1, "description": "Pedestrian walk signal (1 = WALK, 0 = DONT WALK)"},
+    {"name": "state_out", "dir": "output", "width": 3, "description": "Current state indicator for verification monitor"}
+  ],
+  "requirements": [
+    "Safety Guarantee: Under NO circumstances may main_light and side_light both show Green or Yellow simultaneously.",
+    "Emergency Preemption: When emergency_override asserts, main_light must immediately force Green, side_light Red, and ped_walk 0.",
+    "State Sequence: S_MAIN_GREEN -> S_MAIN_YELLOW -> S_ALL_RED1 -> S_SIDE_GREEN -> S_SIDE_YELLOW -> S_ALL_RED2 -> S_MAIN_GREEN.",
+    "Pedestrian Servicing: If pedestrian_req was pulsed, provide a walk phase during the side green cycle and clear the latched request."
+  ]
+}

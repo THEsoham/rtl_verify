@@ -1,0 +1,33 @@
+{
+  "name": "fifo_sync",
+  "title": "Synchronous FIFO Buffer",
+  "category": "Queue / Memory Buffer",
+  "description": "A synchronous first-in, first-out (FIFO) memory buffer with configurable data width (default 8) and depth (default 16). Handles simultaneous write and read requests cleanly, generates accurate full, empty, almost_full, and almost_empty status flags, and prevents read/write pointer corruption on overflow or underflow conditions.",
+  "parameters": [
+    {"name": "DATA_WIDTH", "default": 8, "description": "Width of data bus in bits"},
+    {"name": "FIFO_DEPTH", "default": 16, "description": "Number of slots in the FIFO (power of 2)"},
+    {"name": "ALMOST_FULL_THRESH", "default": 14, "description": "Threshold at which almost_full asserts"},
+    {"name": "ALMOST_EMPTY_THRESH", "default": 2, "description": "Threshold at which almost_empty asserts"}
+  ],
+  "ports": [
+    {"name": "clk", "dir": "input", "width": 1, "description": "Positive-edge master clock"},
+    {"name": "rst_n", "dir": "input", "width": 1, "description": "Active-low asynchronous reset"},
+    {"name": "wr_en", "dir": "input", "width": 1, "description": "Write enable"},
+    {"name": "wr_data", "dir": "input", "width": "DATA_WIDTH", "description": "Input data to write"},
+    {"name": "rd_en", "dir": "input", "width": 1, "description": "Read enable"},
+    {"name": "rd_data", "dir": "output", "width": "DATA_WIDTH", "description": "Output data read from FIFO"},
+    {"name": "full", "dir": "output", "width": 1, "description": "Asserted when FIFO has no remaining capacity"},
+    {"name": "empty", "dir": "output", "width": 1, "description": "Asserted when FIFO contains 0 elements"},
+    {"name": "almost_full", "dir": "output", "width": 1, "description": "Asserted when count >= ALMOST_FULL_THRESH"},
+    {"name": "almost_empty", "dir": "output", "width": 1, "description": "Asserted when count <= ALMOST_EMPTY_THRESH"},
+    {"name": "count", "dir": "output", "width": 5, "description": "Current number of valid items in FIFO (0 to FIFO_DEPTH)"}
+  ],
+  "requirements": [
+    "Reset behavior: When rst_n is 0, empty=1, full=0, count=0, pointers=0, rd_data=0.",
+    "Write behavior: If wr_en is high and full is low, wr_data is stored into memory[wr_ptr] and wr_ptr advances.",
+    "Read behavior: If rd_en is high and empty is low, rd_data presents memory[rd_ptr] and rd_ptr advances.",
+    "Simultaneous Write and Read: When wr_en and rd_en are both asserted when neither full nor empty, both operations succeed and count remains constant.",
+    "Boundary protections: Writing when full MUST NOT overwrite existing data; Reading when empty MUST NOT corrupt pointers.",
+    "All status flags (full, empty, almost_full, almost_empty, count) must be cycle-accurate."
+  ]
+}
