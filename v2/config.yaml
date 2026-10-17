@@ -1,0 +1,143 @@
+# Cross-Family Verilog Verification Pipeline Configuration (v2)
+
+simulator:
+  type: "iverilog"
+  iverilog_path: "d:/rtl-verification/tools/iverilog/app/bin/iverilog.exe"
+  vvp_path: "d:/rtl-verification/tools/iverilog/app/bin/vvp.exe"
+  flags:
+    - "-g2012"
+  timeout_sec: 5.0
+
+dataset:
+  source: "dakies/nvlabs-verilogeval-v2-spec-to-rtl"
+  split: "test"
+  pilot_problem_count: 20
+  # Legacy benchmarks marked UNREVIEWED: disabled until user confirms
+  include_legacy_benchmarks: false
+  legacy_benchmarks_dir: "d:/rtl-verification/v2/golden/legacy_unreviewed"
+
+models:
+  # Local models in Ollama
+  - id: "qwen-1.5b"
+    name: "qwen2.5-coder:1.5b"
+    family: "qwen"
+    provider: "ollama"
+    api_base: "http://localhost:11434"
+    temperature: 0.2
+    max_tokens: 2048
+
+  - id: "llama-8b"
+    name: "llama3.1:8b"
+    family: "llama"
+    provider: "ollama"
+    api_base: "http://localhost:11434"
+    temperature: 0.2
+    max_tokens: 2048
+
+  - id: "qwen-verilog-tuned"
+    name: "qwen2.5-coder-verilog:latest"
+    family: "qwen-tuned"
+    provider: "ollama"
+    api_base: "http://localhost:11434"
+    temperature: 0.2
+    max_tokens: 2048
+
+  - id: "llama-verifier-tuned"
+    name: "llama-verilog-verifier:latest"
+    family: "llama-tuned"
+    provider: "ollama"
+    api_base: "http://localhost:11434"
+    temperature: 0.2
+    max_tokens: 2048
+
+  - id: "gemma-2b"
+    name: "gemma2:2b"
+    family: "gemma"
+    provider: "ollama"
+    api_base: "http://localhost:11434"
+    temperature: 0.2
+    max_tokens: 2048
+
+  # Cloud API models
+  - id: "gemini-flash"
+    name: "gemini-3.5-flash-lite"
+    fallback_name: "gemini-3.8-flash"
+    family: "gemini"
+    provider: "gemini"
+    temperature: 0.2
+    max_tokens: 2048
+
+  - id: "gpt-4o-mini"
+    name: "gpt-4o-mini"
+    family: "openai"
+    provider: "openai"
+    temperature: 0.2
+    max_tokens: 2048
+
+experiment:
+  # Conditions:
+  #   A: Self-test (G tests G, seeing spec + RTL)
+  #   B: Same-family adversary (G' tests G, seeing spec + RTL)
+  #   B_prime: Same-family spec-only (G' tests G, seeing spec only)
+  #   C: Cross-family adversary (T tests G, seeing spec + RTL)
+  #   C_prime: Cross-family spec-only (T tests G, seeing spec only)
+  #   D: Compute-matched self-test (G tests G with matched compute budget)
+  conditions:
+    - "A"
+    - "B"
+    - "B_prime"
+    - "C"
+    - "C_prime"
+    - "D"
+  seeds:
+    - 42
+    - 43
+    - 44
+  samples_per_condition: 3
+  model_pairs:
+    cloud_gpt_gemini:
+      name: "Cloud GPT-4o-mini vs Gemini-3.5-flash-lite"
+      generator: "gpt-4o-mini"
+      generator_prime: "gpt-4o-mini"
+      tester: "gemini-flash"
+    cloud_gemini_gpt:
+      name: "Cloud Gemini-3.5-flash-lite vs GPT-4o-mini"
+      generator: "gemini-flash"
+      generator_prime: "gemini-flash"
+      tester: "gpt-4o-mini"
+    local_qwen_llama:
+      name: "Local Qwen-1.5B vs Llama-8B"
+      generator: "qwen-1.5b"
+      generator_prime: "qwen-verilog-tuned"
+      tester: "llama-8b"
+    local_llama_qwen:
+      name: "Local Llama-8B vs Qwen-1.5B"
+      generator: "llama-8b"
+      generator_prime: "llama-verifier-tuned"
+      tester: "qwen-1.5b"
+    local_qwen_gemma:
+      name: "Local Qwen-1.5B vs Gemma-2B"
+      generator: "qwen-1.5b"
+      generator_prime: "qwen-verilog-tuned"
+      tester: "gemma-2b"
+
+mutation:
+  operators:
+    - "AOR"  # Arithmetic Operator Replacement (+ <-> -)
+    - "ROR"  # Relational Operator Replacement (== <-> !=, < <-> >=)
+    - "LOR"  # Logical Operator Replacement (&& <-> ||)
+    - "BIF"  # Bit/Condition Inversion (!a <-> a, ~a <-> a)
+    - "OFF"  # Off-by-one in constants (c+1, c-1)
+    - "RST"  # Wrong reset value
+    - "STA"  # Stuck-at-0 or stuck-at-1
+    - "SWP"  # Swap operand signals
+    - "FSM"  # Wrong next-state transition
+  max_mutants_per_problem: 10
+  equivalence_check: true
+
+paths:
+  root: "d:/rtl-verification/v2"
+  logs: "d:/rtl-verification/v2/logs"
+  results: "d:/rtl-verification/v2/results"
+  cache: "d:/rtl-verification/v2/cache"
+  golden: "d:/rtl-verification/v2/golden"

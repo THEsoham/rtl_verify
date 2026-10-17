@@ -1,0 +1,16 @@
+{
+  "call_id": "22e0fa7c9922eee7805baa476b950202b51c29e39c65e4bf312ede2506bd55fa",
+  "model_id": "gpt-4o-mini",
+  "model_name": "gpt-4o-mini",
+  "exact_model_version": "gpt-4o-mini-2024-07-18",
+  "date_called": "2026-10-15",
+  "provider": "openai",
+  "prompt": "You are an expert digital ASIC and FPGA Verilog design engineer.\nImplement the module 'TopModule' satisfying the exact specification below.\n\nSPECIFICATION:\n\nI would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  reset\n - output q (5 bits)\n\nA linear feedback shift register is a shift register usually with a few\nXOR gates to produce the next state of the shift register. A Galois LFSR\nis one particular arrangement where bit positions with a \"tap\" are XORed\nwith the output bit to produce its next value, while bit positions\nwithout a tap shift. If the taps positions are carefully chosen, the LFSR\ncan be made to be \"maximum-length\". A maximum-length LFSR of n bits\ncycles through 2**n-1 states before repeating (the all-zero state is\nnever reached).\n\nThe module should implement a 5-bit maximal-length Galois LFSR with taps\nat bit positions 5 and 3. The active-high synchronous reset should reset\nthe LFSR output to 1. Assume all sequential logic is triggered on the\npositive edge of the clock.\n\n\n\nRULES:\n1. Write clean, synthesizable, standard Verilog (IEEE 1364-2001/2005 or SystemVerilog 2012).\n2. The module name MUST be 'TopModule'.\n3. Output ONLY the module code enclosed in a ```verilog ... ``` code block.\n4. Ensure all port names and bit-widths match the specification exactly.\n",
+  "raw_response": "```verilog\nmodule TopModule (\n    input clk,\n    input reset,\n    output reg [4:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 5'b00001; // Reset to 1\n        end else begin\n            // Galois LFSR with taps at positions 5 and 3\n            q <= {q[3] ^ q[4], q[4], q[2:0]}; // Shift and XOR feedback\n        end\n    end\n\nendmodule\n```",
+  "verilog_code": "module TopModule (\n    input clk,\n    input reset,\n    output reg [4:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 5'b00001; // Reset to 1\n        end else begin\n            // Galois LFSR with taps at positions 5 and 3\n            q <= {q[3] ^ q[4], q[4], q[2:0]}; // Shift and XOR feedback\n        end\n    end\n\nendmodule",
+  "prompt_tokens": 343,
+  "completion_tokens": 123,
+  "total_tokens": 466,
+  "latency_sec": 2.0441,
+  "cached": false
+}

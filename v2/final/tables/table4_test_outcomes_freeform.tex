@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Test Outcome Breakdown (Free-form Arm)}
+\label{tab:outcomes_freeform}
+\begin{tabular}{lrlllll}
+\toprule
+Condition & Total_n & Compile_Fail & Contract_Viol & Vacuous & Wrong_Test & Valid_Test \\
+\midrule
+A (Self) & 171 & 1 of 171 (0.6%) & 12 of 171 (7.0%) & 5 of 171 (2.9%) & 93 of 171 (54.4%) & 65 of 171 (38.0%) \\
+D (Matched) & 171 & 1 of 171 (0.6%) & 9 of 171 (5.3%) & 4 of 171 (2.3%) & 93 of 171 (54.4%) & 68 of 171 (39.8%) \\
+B (Same+RTL) & 170 & 0 of 170 (0.0%) & 8 of 170 (4.7%) & 1 of 170 (0.6%) & 106 of 170 (62.4%) & 56 of 170 (32.9%) \\
+B' (Same-Spec) & 170 & 1 of 170 (0.6%) & 3 of 170 (1.8%) & 1 of 170 (0.6%) & 104 of 170 (61.2%) & 62 of 170 (36.5%) \\
+C (Cross+RTL) & 170 & 4 of 170 (2.4%) & 6 of 170 (3.5%) & 0 of 170 (0.0%) & 97 of 170 (57.1%) & 63 of 170 (37.1%) \\
+C' (Cross-Spec) & 170 & 0 of 170 (0.0%) & 4 of 170 (2.4%) & 1 of 170 (0.6%) & 103 of 170 (60.6%) & 63 of 170 (37.1%) \\
+\bottomrule
+\end{tabular}
+\end{table}

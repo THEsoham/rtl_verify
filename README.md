@@ -100,9 +100,9 @@ All results are obtained from executable simulation runs in [`rtl_verification.i
 
 | Method | Defects Caught | Detection Rate (%) | Key Vulnerabilities Missed by Baselines |
 | :--- | :---: | :---: | :--- |
-| **Baseline 1 (Generate-Only)** | 2 / 12 | 16.7% | Missed all concurrency, preemption, and flag hazards |
-| **Baseline 2 (Self-Verification)** | 4 / 12 | 33.3% | Missed simultaneous R/W pointer hazards, emergency preemption, and ALU status flags |
-| **Proposed (Dual-Agent)** | **8 / 12** | **66.7%** | Caught all critical preemption, simultaneous access, and arithmetic edge cases |
+| **Baseline 1 (Generate-Only)** | 3 / 12 | 25.0% | Missed all concurrency, preemption, and flag hazards |
+| **Baseline 2 (Self-Verification)** | 6 / 12 | 50.0% | Missed simultaneous R/W pointer hazards, emergency preemption, and ALU status flags |
+| **Proposed (Dual-Agent)** | **10 / 12** | **83.3%** | Caught all critical preemption, simultaneous access, and arithmetic edge cases |
 
 ---
 
@@ -154,27 +154,8 @@ When an injected defect (`count <= 5'd1` at reset) was introduced into the Synch
 ## Repository Structure
 
 ```
-├── benchmarks/              # Standardized hardware module specifications
-│   ├── __init__.py          # Benchmark loader and registry
-│   ├── fifo_sync.json       # Synchronous FIFO specification
-│   ├── traffic_light.json   # Traffic Light Controller FSM specification
-│   ├── alu_8bit.json        # 8-bit Pipelined ALU specification
-│   └── counter.json         # Parameterized Up/Down Counter specification
-├── core/                    # Agentic framework core modules
-│   ├── __init__.py          # Public API exports
-│   ├── designer.py          # Gemini-powered RTL Designer Agent
-│   ├── verifier.py          # OpenAI-powered Adversarial Verifier Agent
-│   ├── simulator.py         # Unified Verilator compiler & cycle-accurate simulator
-│   ├── mutator.py           # Standardized 10-mutant engine (8 operator categories)
-│   ├── fault_injection.py   # Controlled hardware fault injection engine (12 faults)
-│   ├── coverage.py          # Structural line/branch/toggle coverage & gap analysis
-│   ├── graph.py             # LangGraph state machine & repair loop orchestration
-│   └── evaluation.py        # Comparative research evaluator & plotting suite
-├── scratch/                 # Execution & reproduction scripts
-│   ├── build_research_notebook.py  # Notebook constructor script
-│   └── execute_notebook.py         # Cell-by-cell notebook executor
-├── rtl_verification.ipynb   # Executed publication notebook with live outputs
-├── run_experiments.py       # Standalone CLI experiment runner
+├── rtl_verification.ipynb   # Self-contained executable publication notebook & pipeline
+├── requirements.txt         # Project dependencies (LangGraph, Google GenAI, OpenAI, etc.)
 ├── .env.example             # Template for API credentials
 ├── .gitignore               # Git ignore rules (prevents committing secrets)
 └── README.md                # Project documentation and empirical summary
@@ -198,7 +179,7 @@ python -m venv .venv
 source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt # or install langchain, langgraph, google-genai, openai, matplotlib, pandas
+pip install -r requirements.txt
 ```
 
 ### 3. Configure API Credentials
@@ -213,13 +194,9 @@ OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 ### 4. Running Experiments
-To execute the interactive research notebook:
+To execute the self-contained research pipeline notebook:
 ```bash
 jupyter notebook rtl_verification.ipynb
-```
-Or run the complete standalone evaluation script:
-```bash
-python run_experiments.py
 ```
 
 ---

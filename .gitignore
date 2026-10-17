@@ -31,6 +31,15 @@ build/
 dist/
 *.egg-info/
 
+# PyTorch / Training model checkpoints & outputs
+training/output/
+*.pt
+*.safetensors
+
+# Test caches
+.pytest_cache/
+
 # Temporary / Scratch scripts
 scratch/test_*.py
 scratch/check_*.py
+

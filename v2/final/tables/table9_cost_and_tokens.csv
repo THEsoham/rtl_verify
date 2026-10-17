@@ -1,0 +1,7 @@
+Condition,Generator_Tokens_Mean,Tester_Tokens_Mean,Retries_Total,Wall_Time_sec_Mean
+A (Self),602.7,1795.2,25,8.48
+D (Matched),602.7,1798.6,23,8.27
+B (Same+RTL),584.7,1890.9,28,10.32
+B' (Same-Spec),584.7,1631.5,21,6.67
+C (Cross+RTL),584.7,1878.6,25,7.76
+C' (Cross-Spec),584.7,1650.8,21,4.34

@@ -1,0 +1,14 @@
+{
+  "call_id": "89726da3eeff3f2511401e04cc21418ed3365991b81da841bd5ca1c11c62b689",
+  "model_id": "gemini-flash",
+  "model_name": "gemini-3.8-flash",
+  "provider": "gemini",
+  "prompt": "Say hello in 5 words",
+  "raw_response": "Hello there, how are you?",
+  "verilog_code": "Hello there, how are you?",
+  "prompt_tokens": 7,
+  "completion_tokens": 7,
+  "total_tokens": 14,
+  "latency_sec": 4.0063,
+  "cached": false
+}

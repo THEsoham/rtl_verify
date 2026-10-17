@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Escape Rate and CorrectBench-Style Validator-Fooled Rate}
+\label{tab:escape_vfr}
+\begin{tabular}{lrrll}
+\toprule
+Condition & Natural_Bugs_Tested_n & Bugs_Escaped_k & Escape_Rate & Validator_Fooled_Rate \\
+\midrule
+A (Self) & 11 & 4 & 4 of 11 (36.4%) & 0 of 93 (0.0%) \\
+D (Matched) & 12 & 3 & 3 of 12 (25.0%) & 0 of 93 (0.0%) \\
+B (Same+RTL) & 9 & 3 & 3 of 9 (33.3%) & 0 of 106 (0.0%) \\
+B' (Same-Spec) & 11 & 1 & 1 of 11 (9.1%) & 0 of 104 (0.0%) \\
+C (Cross+RTL) & 14 & 4 & 4 of 14 (28.6%) & 0 of 97 (0.0%) \\
+C' (Cross-Spec) & 20 & 2 & 2 of 20 (10.0%) & 0 of 103 (0.0%) \\
+\bottomrule
+\end{tabular}
+\end{table}

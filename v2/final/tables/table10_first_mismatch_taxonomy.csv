@@ -1,0 +1,6 @@
+Category,Count,Proportion
+Off-by-one Timing,7,7 of 596 (1.2%)
+Wrong Reset Behavior,505,505 of 596 (84.7%)
+Wrong Wrap Value,0,0 of 596 (0.0%)
+Wrong Initial Value,4,4 of 596 (0.7%)
+Other Functional Mismatch,80,80 of 596 (13.4%)

@@ -1,0 +1,4 @@
+Pair_Type,Agreement_k,Total_Pairs_n,Agreement_Rate_pct,CI_Low_pct,CI_High_pct
+Same-Model,3,1149,0.26109660574412535,0.0,0.9513993758179802
+Same-Family,0,0,0.0,0.0,0.0
+Cross-Family,0,1074,0.0,0.0,0.0

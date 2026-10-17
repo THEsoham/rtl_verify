@@ -1,0 +1,978 @@
+[
+  {
+    "problem_id": "Prob001_zero",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob002_m2014_q4i",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob003_step_one",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob004_vector2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob005_notgate",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob006_vectorr",
+    "category": "combinational",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 15,
+    "non_equiv_mutants": 14
+  },
+  {
+    "problem_id": "Prob007_wire",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob008_m2014_q4h",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob009_popcount3",
+    "category": "counter",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (6 generated)",
+    "mutants_generated": 6,
+    "non_equiv_mutants": 6
+  },
+  {
+    "problem_id": "Prob010_mt2015_q4a",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob011_norgate",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob012_xnorgate",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob013_m2014_q4e",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob014_andgate",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob015_vector1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 0,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob016_m2014_q4j",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob017_mux2to1v",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob018_mux256to1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob019_m2014_q4f",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob020_mt2015_eq2",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob021_mux256to1v",
+    "category": "combinational",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 16,
+    "non_equiv_mutants": 16
+  },
+  {
+    "problem_id": "Prob022_mux2to1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob023_vector100r",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob024_hadd",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 0,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob025_reduction",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob026_alwaysblock1",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob027_fadd",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 0,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob028_m2014_q4a",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob029_m2014_q4g",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob030_popcount255",
+    "category": "counter",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 5,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob031_dff",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob032_vector0",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob033_ece241_2014_q1c",
+    "category": "arithmetic",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 10
+  },
+  {
+    "problem_id": "Prob034_dff8",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob035_count1to10",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 13,
+    "non_equiv_mutants": 13
+  },
+  {
+    "problem_id": "Prob036_ringer",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob037_review2015_count1k",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 12,
+    "non_equiv_mutants": 10
+  },
+  {
+    "problem_id": "Prob038_count15",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 8
+  },
+  {
+    "problem_id": "Prob039_always_if",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob040_count10",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 12,
+    "non_equiv_mutants": 12
+  },
+  {
+    "problem_id": "Prob041_dff8r",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 6,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob042_vector4",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 5,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob043_vector5",
+    "category": "combinational",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 13,
+    "non_equiv_mutants": 11
+  },
+  {
+    "problem_id": "Prob044_vectorgates",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob045_edgedetect2",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 5,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob046_dff8p",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob047_dff8ar",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 7,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob048_m2014_q4c",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 6,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob049_m2014_q4b",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 7,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob050_kmap1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob051_gates4",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob052_gates100",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob053_m2014_q4d",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob054_edgedetect",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 5,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob055_conditional",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (6 generated)",
+    "mutants_generated": 6,
+    "non_equiv_mutants": 6
+  },
+  {
+    "problem_id": "Prob056_ece241_2013_q7",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob057_kmap2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob058_alwaysblock2",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 4,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob059_wire4",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 0,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob060_m2014_q4k",
+    "category": "shift_register",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 8
+  },
+  {
+    "problem_id": "Prob061_2014_q4a",
+    "category": "shift_register",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (6 generated)",
+    "mutants_generated": 7,
+    "non_equiv_mutants": 6
+  },
+  {
+    "problem_id": "Prob062_bugs_mux2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob063_review2015_shiftcount",
+    "category": "counter",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob064_vector3",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob065_7420",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob066_edgecapture",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 9,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob067_countslow",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 15,
+    "non_equiv_mutants": 14
+  },
+  {
+    "problem_id": "Prob068_countbcd",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 20,
+    "non_equiv_mutants": 17
+  },
+  {
+    "problem_id": "Prob069_truthtable1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob070_ece241_2013_q2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 4,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob071_always_casez",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 25,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob072_thermostat",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (3 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 3
+  },
+  {
+    "problem_id": "Prob073_dff16e",
+    "category": "sequential_other",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 13,
+    "non_equiv_mutants": 12
+  },
+  {
+    "problem_id": "Prob074_ece241_2014_q4",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob075_counter_2bc",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 25,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob076_always_case",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob077_wire_decl",
+    "category": "counter",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 4,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob078_dualedge",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 13,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob079_fsm3onehot",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob080_timer",
+    "category": "counter",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 14,
+    "non_equiv_mutants": 13
+  },
+  {
+    "problem_id": "Prob081_7458",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob082_lfsr32",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 19,
+    "non_equiv_mutants": 17
+  },
+  {
+    "problem_id": "Prob083_mt2015_q4b",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob084_ece241_2013_q12",
+    "category": "shift_register",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 5,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob085_shift4",
+    "category": "shift_register",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 11,
+    "non_equiv_mutants": 9
+  },
+  {
+    "problem_id": "Prob086_lfsr5",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 14,
+    "non_equiv_mutants": 12
+  },
+  {
+    "problem_id": "Prob087_gates",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 7,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob088_ece241_2014_q5b",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 16,
+    "non_equiv_mutants": 13
+  },
+  {
+    "problem_id": "Prob089_ece241_2014_q5a",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 17,
+    "non_equiv_mutants": 14
+  },
+  {
+    "problem_id": "Prob090_circuit1",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob091_2012_q2b",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 11,
+    "non_equiv_mutants": 11
+  },
+  {
+    "problem_id": "Prob092_gatesv100",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob093_ece241_2014_q3",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (7 generated)",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 7
+  },
+  {
+    "problem_id": "Prob094_gatesv",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (4 generated)",
+    "mutants_generated": 12,
+    "non_equiv_mutants": 4
+  },
+  {
+    "problem_id": "Prob095_review2015_fsmshift",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 16,
+    "non_equiv_mutants": 14
+  },
+  {
+    "problem_id": "Prob096_review2015_fsmseq",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 16,
+    "non_equiv_mutants": 13
+  },
+  {
+    "problem_id": "Prob097_mux9to1v",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 2,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob098_circuit7",
+    "category": "sequential_other",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob099_m2014_q6c",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 11,
+    "non_equiv_mutants": 11
+  },
+  {
+    "problem_id": "Prob100_fsm3comb",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 8,
+    "non_equiv_mutants": 8
+  },
+  {
+    "problem_id": "Prob101_circuit4",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob102_circuit3",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob103_circuit2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 1,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob104_mt2015_muxdff",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 3,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob105_rotate100",
+    "category": "shift_register",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 19,
+    "non_equiv_mutants": 15
+  },
+  {
+    "problem_id": "Prob106_always_nolatches",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (1 generated)",
+    "mutants_generated": 17,
+    "non_equiv_mutants": 1
+  },
+  {
+    "problem_id": "Prob107_fsm1s",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 10
+  },
+  {
+    "problem_id": "Prob108_rule90",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (5 generated)",
+    "mutants_generated": 6,
+    "non_equiv_mutants": 5
+  },
+  {
+    "problem_id": "Prob109_fsm1",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 11,
+    "non_equiv_mutants": 10
+  },
+  {
+    "problem_id": "Prob110_fsm2",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 11,
+    "non_equiv_mutants": 9
+  },
+  {
+    "problem_id": "Prob111_fsm2s",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 8
+  },
+  {
+    "problem_id": "Prob112_always_case2",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (2 generated)",
+    "mutants_generated": 25,
+    "non_equiv_mutants": 2
+  },
+  {
+    "problem_id": "Prob113_2012_q1g",
+    "category": "combinational",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 24,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob114_bugs_case",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 25,
+    "non_equiv_mutants": 22
+  },
+  {
+    "problem_id": "Prob115_shift18",
+    "category": "shift_register",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 23,
+    "non_equiv_mutants": 15
+  },
+  {
+    "problem_id": "Prob116_m2014_q3",
+    "category": "arithmetic",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 25,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob117_circuit9",
+    "category": "sequential_other",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 17,
+    "non_equiv_mutants": 14
+  },
+  {
+    "problem_id": "Prob118_history_shift",
+    "category": "fsm",
+    "passed": false,
+    "reason": "Excluded: Fewer than 8 non-equivalent mutants (0 generated)",
+    "mutants_generated": 10,
+    "non_equiv_mutants": 0
+  },
+  {
+    "problem_id": "Prob119_fsm3",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 15,
+    "non_equiv_mutants": 12
+  },
+  {
+    "problem_id": "Prob120_fsm3s",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 14,
+    "non_equiv_mutants": 12
+  },
+  {
+    "problem_id": "Prob121_2014_q3bfsm",
+    "category": "fsm",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 16,
+    "non_equiv_mutants": 13
+  },
+  {
+    "problem_id": "Prob122_kmap4",
+    "category": "combinational",
+    "passed": true,
+    "reason": "Included",
+    "mutants_generated": 24,
+    "non_equiv_mutants": 24
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "generated_timestamp": "2026-10-15T16:55:32Z",
+    "source_experiment": "Cross-Family Verilog Verification (v2/final)",
+    "total_trials": 1112
+  },
+  "table4_freeform_outcomes": {
+    "A": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 171,
+      "valid_tests_k": 65,
+      "valid_test_rate_pct": 38.01,
+      "wrong_tests_k": 93,
+      "wrong_test_rate_pct": 54.39,
+      "vacuous_tests_k": 5,
+      "vacuous_test_rate_pct": 2.92,
+      "contract_violations_k": 12,
+      "compile_fails_k": 1
+    },
+    "D": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 171,
+      "valid_tests_k": 68,
+      "valid_test_rate_pct": 39.77,
+      "wrong_tests_k": 93,
+      "wrong_test_rate_pct": 54.39,
+      "vacuous_tests_k": 4,
+      "vacuous_test_rate_pct": 2.34,
+      "contract_violations_k": 9,
+      "compile_fails_k": 1
+    },
+    "B": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 170,
+      "valid_tests_k": 56,
+      "valid_test_rate_pct": 32.94,
+      "wrong_tests_k": 106,
+      "wrong_test_rate_pct": 62.35,
+      "vacuous_tests_k": 1,
+      "vacuous_test_rate_pct": 0.59,
+      "contract_violations_k": 8,
+      "compile_fails_k": 0
+    },
+    "B_prime": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 170,
+      "valid_tests_k": 62,
+      "valid_test_rate_pct": 36.47,
+      "wrong_tests_k": 104,
+      "wrong_test_rate_pct": 61.18,
+      "vacuous_tests_k": 1,
+      "vacuous_test_rate_pct": 0.59,
+      "contract_violations_k": 3,
+      "compile_fails_k": 1
+    },
+    "C": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 170,
+      "valid_tests_k": 63,
+      "valid_test_rate_pct": 37.06,
+      "wrong_tests_k": 97,
+      "wrong_test_rate_pct": 57.06,
+      "vacuous_tests_k": 0,
+      "vacuous_test_rate_pct": 0.0,
+      "contract_violations_k": 6,
+      "compile_fails_k": 4
+    },
+    "C_prime": {
+      "file": "v2/final/tables/table4_test_outcomes_freeform.csv",
+      "total_n": 170,
+      "valid_tests_k": 63,
+      "valid_test_rate_pct": 37.06,
+      "wrong_tests_k": 103,
+      "wrong_test_rate_pct": 60.59,
+      "vacuous_tests_k": 1,
+      "vacuous_test_rate_pct": 0.59,
+      "contract_violations_k": 4,
+      "compile_fails_k": 0
+    }
+  },
+  "table6_wrong_agreement": {
+    "file": "v2/final/tables/table6_wrong_expectation_agreement.csv",
+    "same_model": {
+      "k": 3,
+      "n": 1149,
+      "rate_pct": 0.26,
+      "ci_95": [
+        0.0,
+        0.95
+      ]
+    },
+    "same_family": {
+      "k": 0,
+      "n": 0,
+      "rate_pct": 0.0,
+      "ci_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "cross_family": {
+      "k": 0,
+      "n": 1074,
+      "rate_pct": 0.0,
+      "ci_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "table7_mutation": {
+    "A": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 100.0,
+      "mutants_killed_k": 800,
+      "mutants_tested_n": 800,
+      "tester_strength_pct": 100.0
+    },
+    "D": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 100.0,
+      "mutants_killed_k": 797,
+      "mutants_tested_n": 797,
+      "tester_strength_pct": 100.0
+    },
+    "B": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 97.97,
+      "mutants_killed_k": 675,
+      "mutants_tested_n": 689,
+      "tester_strength_pct": 97.97
+    },
+    "B_prime": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 100.0,
+      "mutants_killed_k": 739,
+      "mutants_tested_n": 739,
+      "tester_strength_pct": 100.0
+    },
+    "C": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 100.0,
+      "mutants_killed_k": 763,
+      "mutants_tested_n": 763,
+      "tester_strength_pct": 100.0
+    },
+    "C_prime": {
+      "file": "v2/final/tables/table7_mutation_and_tester_strength.csv",
+      "mutation_score_pct": 100.0,
+      "mutants_killed_k": 771,
+      "mutants_tested_n": 771,
+      "tester_strength_pct": 100.0
+    }
+  },
+  "table8_escape": {
+    "A": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 11,
+      "bugs_escaped_k": 4,
+      "escape_rate_pct": 36.36,
+      "validator_fooled_rate_pct": 0.0
+    },
+    "D": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 12,
+      "bugs_escaped_k": 3,
+      "escape_rate_pct": 25.0,
+      "validator_fooled_rate_pct": 0.0
+    },
+    "B": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 9,
+      "bugs_escaped_k": 3,
+      "escape_rate_pct": 33.33,
+      "validator_fooled_rate_pct": 0.0
+    },
+    "B_prime": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 11,
+      "bugs_escaped_k": 1,
+      "escape_rate_pct": 9.09,
+      "validator_fooled_rate_pct": 0.0
+    },
+    "C": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 14,
+      "bugs_escaped_k": 4,
+      "escape_rate_pct": 28.57,
+      "validator_fooled_rate_pct": 0.0
+    },
+    "C_prime": {
+      "file": "v2/final/tables/table8_escape_and_validator_fooled.csv",
+      "natural_bugs_tested_n": 20,
+      "bugs_escaped_k": 2,
+      "escape_rate_pct": 10.0,
+      "validator_fooled_rate_pct": 0.0
+    }
+  },
+  "table10_taxonomy": {
+    "file": "v2/final/tables/table10_first_mismatch_taxonomy.csv",
+    "off_by_one_timing": 7,
+    "wrong_reset_behavior": 505,
+    "wrong_wrap_value": 0,
+    "wrong_initial_value": 4,
+    "other": 80,
+    "total_wrong_tests": 596
+  }
+}

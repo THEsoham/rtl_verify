@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- D:\rtl-verification\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\rtl-verification
+plugins: anyio-4.15.1, langsmith-0.14.1
+collecting ... collected 27 items
+
+v2/tests/test_harness.py::test_known_equivalent_mutant_same PASSED       [  3%]
+v2/tests/test_harness.py::test_known_real_fault_different PASSED         [  7%]
+v2/tests/test_harness.py::test_known_real_fault_killed PASSED            [ 11%]
+v2/tests/test_harness.py::test_always_pass_testbench_rejected_by_non_vacuity_gate PASSED [ 14%]
+v2/tests/test_harness.py::test_deliberately_wrong_counter_detected PASSED [ 18%]
+v2/tests/test_harness.py::test_testbench_with_off_by_one_expectation_fails_golden PASSED [ 22%]
+v2/tests/test_llm_client.py::test_extract_verilog_fenced PASSED          [ 25%]
+v2/tests/test_llm_client.py::test_extract_verilog_systemverilog_tag PASSED [ 29%]
+v2/tests/test_llm_client.py::test_extract_verilog_unfenced PASSED        [ 33%]
+v2/tests/test_llm_client.py::test_llm_client_caching PASSED              [ 37%]
+v2/tests/test_metrics.py::test_bootstrap_ci PASSED                       [ 40%]
+v2/tests/test_metrics.py::test_condition_metrics_computation PASSED      [ 44%]
+v2/tests/test_mutator.py::test_mutant_generation PASSED                  [ 48%]
+v2/tests/test_mutator.py::test_mutant_validation_and_equivalence PASSED  [ 51%]
+v2/tests/test_pipeline.py::test_pipeline_valid_contract PASSED           [ 55%]
+v2/tests/test_pipeline.py::test_pipeline_contract_violation_triggers_retry PASSED [ 59%]
+v2/tests/test_pipeline.py::test_loud_failure_on_insufficient_mutants PASSED [ 62%]
+v2/tests/test_pipeline.py::test_template_arm_execution PASSED            [ 66%]
+v2/tests/test_problems.py::test_classify_problem PASSED                  [ 70%]
+v2/tests/test_problems.py::test_problem_loader_caching PASSED            [ 74%]
+v2/tests/test_verilog_sim.py::test_clean_combinational_sim PASSED        [ 77%]
+v2/tests/test_verilog_sim.py::test_failing_sim_detects_mismatch PASSED   [ 81%]
+v2/tests/test_verilog_sim.py::test_syntax_error_compilation PASSED       [ 85%]
+v2/tests/test_verilog_sim.py::test_contract_pass PASSED                  [ 88%]
+v2/tests/test_verilog_sim.py::test_contract_fail PASSED                  [ 92%]
+v2/tests/test_verilog_sim.py::test_contract_rejection_missing_status PASSED [ 96%]
+v2/tests/test_verilog_sim.py::test_contract_rejection_multiple_status PASSED [100%]
+
+============================= 27 passed in 3.50s ==============================
+

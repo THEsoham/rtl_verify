@@ -1,0 +1,14 @@
+{
+  "call_id": "dcedc0a5e5f338ba958523f34f3296048c2c49701b7640cae497b90c01b84d44",
+  "model_id": "gemini-flash",
+  "model_name": "gemini-3.8-flash",
+  "provider": "gemini",
+  "prompt": "Write a module tb; initial ; endmodule",
+  "raw_response": "Here is the exact minimal module as written:\n\n```systemverilog\nmodule tb;\n    initial ;\nendmodule\n```\n\n---\n\nIf you are looking for a standard, functional testbench skeleton with basic simulation control, here is a commonly used template:\n\n```systemverilog\n`timescale 1ns / 1ps\n\nmodule tb;\n\n    // Simulation control\n    initial begin\n        $display(\"Simulation started.\");\n        \n        // Add your stimulus here\n        #100;\n        \n        $display(\"Simulation finished.\");\n        $finish;\n    end\n\n    // Optional: Dump waveforms (for tools like GTKWave, ModelSim, VCS)\n    initial begin\n        $dumpfile(\"dump.vcd\");\n        $dumpvars(0, tb);\n    end\n\nendmodule\n```",
+  "verilog_code": "module tb;\n    initial ;\nendmodule",
+  "prompt_tokens": 10,
+  "completion_tokens": 178,
+  "total_tokens": 188,
+  "latency_sec": 7.9127,
+  "cached": false
+}

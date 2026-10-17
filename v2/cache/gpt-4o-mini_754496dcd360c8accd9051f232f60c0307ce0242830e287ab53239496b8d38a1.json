@@ -1,0 +1,16 @@
+{
+  "call_id": "2c6abfce2802c98db1a4987e1f708a9af33b66cea1d4bd9895ba9cafd9422aea",
+  "model_id": "gpt-4o-mini",
+  "model_name": "gpt-4o-mini",
+  "exact_model_version": "gpt-4o-mini-2024-07-18",
+  "date_called": "2026-10-15",
+  "provider": "openai",
+  "prompt": "You are an expert digital ASIC and FPGA Verilog design engineer.\nImplement the module 'TopModule' satisfying the exact specification below.\n\nSPECIFICATION:\n\nI would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  resetn\n - input  in\n - output out\n\nThe module should implement a shift register with four D flops. Assume\nall sequential logic is triggered on the positive edge of the clock.\nReset is active-low synchronous resettable.\n\n\n\nRULES:\n1. Write clean, synthesizable, standard Verilog (IEEE 1364-2001/2005 or SystemVerilog 2012).\n2. The module name MUST be 'TopModule'.\n3. Output ONLY the module code enclosed in a ```verilog ... ``` code block.\n4. Ensure all port names and bit-widths match the specification exactly.\n",
+  "raw_response": "```verilog\nmodule TopModule (\n    input  clk,\n    input  resetn,\n    input  in,\n    output out\n);\n    reg [3:0] shift_reg; // 4-bit shift register\n\n    always @(posedge clk) begin\n        if (!resetn) begin\n            shift_reg <= 4'b0000; // Reset the shift register\n        end else begin\n            shift_reg <= {shift_reg[2:0], in}; // Shift left and insert new bit\n        end\n    end\n\n    assign out = shift_reg[3]; // Output the most significant bit\n\nendmodule\n```",
+  "verilog_code": "module TopModule (\n    input  clk,\n    input  resetn,\n    input  in,\n    output out\n);\n    reg [3:0] shift_reg; // 4-bit shift register\n\n    always @(posedge clk) begin\n        if (!resetn) begin\n            shift_reg <= 4'b0000; // Reset the shift register\n        end else begin\n            shift_reg <= {shift_reg[2:0], in}; // Shift left and insert new bit\n        end\n    end\n\n    assign out = shift_reg[3]; // Output the most significant bit\n\nendmodule",
+  "prompt_tokens": 199,
+  "completion_tokens": 130,
+  "total_tokens": 329,
+  "latency_sec": 2.8187,
+  "cached": false
+}

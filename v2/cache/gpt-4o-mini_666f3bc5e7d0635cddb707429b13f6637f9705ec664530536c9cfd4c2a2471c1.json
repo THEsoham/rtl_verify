@@ -1,0 +1,14 @@
+{
+  "call_id": "d2f0141940c267f5b3c1f8bee44d6b30380b4db624f975a2ef4c431a8bf08054",
+  "model_id": "gpt-4o-mini",
+  "model_name": "gpt-4o-mini",
+  "provider": "openai",
+  "prompt": "You are an expert digital design engineer writing synthesizable Verilog.\nImplement the module 'TopModule' according to the following specification.\nOutput ONLY complete, synthesizable Verilog code enclosed in a ```verilog ... ``` block.\nDo not include testbenches or explanations.\n\nSPECIFICATION:\n\nI would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  reset\n - output q (4 bits)\n\nThe module should implement a decade counter that counts 1 through 10,\ninclusive. Assume all sequential logic is triggered on the positive edge\nof the clock. The reset input is active high synchronous, and should\nreset the counter to 1.\n\n\n",
+  "raw_response": "```verilog\nmodule TopModule (\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0001; // Reset to 1\n        end else begin\n            if (q == 4'b1010) begin\n                q <= 4'b0001; // Reset to 1 after reaching 10\n            end else begin\n                q <= q + 1; // Increment the counter\n            end\n        end\n    end\n\nendmodule\n```",
+  "verilog_code": "module TopModule (\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0001; // Reset to 1\n        end else begin\n            if (q == 4'b1010) begin\n                q <= 4'b0001; // Reset to 1 after reaching 10\n            end else begin\n                q <= q + 1; // Increment the counter\n            end\n        end\n    end\n\nendmodule",
+  "prompt_tokens": 161,
+  "completion_tokens": 124,
+  "total_tokens": 285,
+  "latency_sec": 1.8591,
+  "cached": false
+}

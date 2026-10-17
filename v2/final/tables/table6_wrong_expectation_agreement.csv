@@ -1,0 +1,4 @@
+Comparison,Agreement_Count,Total_Pairs,Rate,95_CI
+Same-Model (Different Seeds),3,1149,3 of 1149 (0.3%),"[0.0%, 1.0%]"
+Same-Family (Condition A vs B),0,0,N/A,"[0.0%, 0.0%]"
+Cross-Family (Condition A vs C),0,1074,0 of 1074 (0.0%),"[0.0%, 0.0%]"

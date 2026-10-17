@@ -1,0 +1,14 @@
+{
+  "call_id": "05c5ea9b988035c45f4fd46704a2fc2eaf3baf355b38b3195213fa2c5954864c",
+  "model_id": "gpt-4o-mini",
+  "model_name": "gpt-4o-mini",
+  "provider": "openai",
+  "prompt": "Say hello in 5 words",
+  "raw_response": "Hello! How are you today?",
+  "verilog_code": "Hello! How are you today?",
+  "prompt_tokens": 13,
+  "completion_tokens": 7,
+  "total_tokens": 20,
+  "latency_sec": 4.3035,
+  "cached": false
+}

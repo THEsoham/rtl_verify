@@ -1,0 +1,8 @@
+Model_ID,Family,Parameter_Class,Quantization,Provider,Exact_Snapshot_Version,Experimental_Role
+gpt-4o-mini,OpenAI GPT,Closed API,API Float16,OpenAI,gpt-4o-mini-2024-07-18,Generator (G) & Adversary (T)
+gemini-flash,Google Gemini,Closed API,API Float16,Google GenAI,gemini-3.5-flash-lite,Generator (G) & Adversary (T)
+qwen-1.5b,Alibaba Qwen,1.5 Billion,4-bit (q4_K_M),Ollama (Local),qwen2.5-coder:1.5b,Generator (G) & Adversary (T)
+qwen-verilog-tuned,Alibaba Qwen (Fine-Tuned),1.5 Billion,4-bit (q4_K_M),Ollama (Local),qwen2.5-coder-verilog:latest,Same-Family Adversary (G')
+llama-8b,Meta Llama,8.0 Billion,4-bit (q4_0),Ollama (Local),llama3.1:8b,Generator (G) & Adversary (T)
+llama-verifier-tuned,Meta Llama (Fine-Tuned),8.0 Billion,4-bit (q4_0),Ollama (Local),llama-verilog-verifier:latest,Same-Family Adversary (G')
+gemma-2b,Google Gemma,2.0 Billion,4-bit (q4_K_M),Ollama (Local),gemma2:2b,Cross-Family Adversary (T)

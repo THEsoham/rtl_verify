@@ -1,0 +1,7 @@
+Condition,Total_n,Compile_Fail,Contract_Viol,Vacuous,Wrong_Test,Valid_Test
+A (Self),15,13 of 15 (86.7%),2 of 15 (13.3%),2 of 15 (13.3%),0 of 15 (0.0%),0 of 15 (0.0%)
+D (Matched),15,12 of 15 (80.0%),3 of 15 (20.0%),3 of 15 (20.0%),0 of 15 (0.0%),0 of 15 (0.0%)
+B (Same+RTL),15,13 of 15 (86.7%),2 of 15 (13.3%),2 of 15 (13.3%),0 of 15 (0.0%),0 of 15 (0.0%)
+B' (Same-Spec),15,13 of 15 (86.7%),2 of 15 (13.3%),2 of 15 (13.3%),0 of 15 (0.0%),0 of 15 (0.0%)
+C (Cross+RTL),15,13 of 15 (86.7%),2 of 15 (13.3%),2 of 15 (13.3%),0 of 15 (0.0%),0 of 15 (0.0%)
+C' (Cross-Spec),15,11 of 15 (73.3%),4 of 15 (26.7%),4 of 15 (26.7%),0 of 15 (0.0%),0 of 15 (0.0%)
