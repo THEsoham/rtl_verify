@@ -721,5 +721,19 @@
    ],
    "p": 0.124
   }
+ },
+ "verilator": {
+  "g1_testbenches": 985,
+  "verilator_ran": 972,
+  "verilator_build_fail": 10,
+  "verilator_contract_violation": 3,
+  "verdict_agreement_where_ran": 935,
+  "fr_ran": 592,
+  "fr_confirmed": 566,
+  "fr_flipped_to_pass": 26,
+  "pass_ran": 380,
+  "pass_flipped_to_fail": 11,
+  "fr_rate_among_ran_icarus": 60.91,
+  "fr_rate_among_ran_both_agree": 58.23
  }
 }

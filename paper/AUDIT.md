@@ -17,7 +17,7 @@ python paper/audit/analysis.py --verilator paper/audit/resim_both.csv
 |---|---|
 | Golden RTL vs. official VerilogEval testbench (30 problems, Icarus 12.0) | 30/30 pass with 0 mismatches |
 | Re-simulate all 1,022 free-form testbenches on golden RTL + inverted mutant (Icarus 12.0, Linux) | **1,022/1,022 verdicts identical** to the archive (`audit/resim_icarus.csv`) |
-| Re-simulate with Verilator 5.020 `--binary --timing` | see `audit/resim_both.csv` and Section RQ1 of the paper |
+| Re-simulate with Verilator 5.020 `--binary --timing` | 972/985 Gate-1 TBs build; **935/972 (96.2%) same verdict**; 566/592 FRs confirmed, 26 FR→PASS, 11 PASS→FAIL (race-sensitive TBs, mostly Prob105/Prob100). Two-simulator FR lower bound 566/1,022 = 55.38% (`audit/resim_both.csv`) |
 | Each testbench vs. the candidate RTL it was written for | `audit/anchor_results.csv` (new anchoring analysis) |
 | Recompute every table/figure number from the CSV | point estimates, Wilson CIs, ICC (0.2665), design effect (9.81), chi-square (4.3566 on 1,022), model comparisons: **all reproduce**; bootstrap CIs differ by ≤0.5 pp (RNG implementation) |
 
